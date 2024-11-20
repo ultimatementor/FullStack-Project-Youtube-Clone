@@ -10,8 +10,8 @@
 // };
 
 const asyncHandler = async (req, res, next) => {
-  await Promise.resolve(asyncHandler(req, res, next)).catch((error) => {
-    return res.status(error.code || 500).json({
+  return await Promise.resolve(asyncHandler(req, res, next)).catch((error) => {
+    res.status(error.code || 500).json({
       success: false,
       message: error.message,
     });
